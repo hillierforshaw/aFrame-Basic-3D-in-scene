@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script>
+
+
+        <style>
+
+            .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+            z-index: 3;
+            }
+
+        </style>
+
+    </head>
+
+
+    <body>
+        <div class="vignette"></div>
+
+        <a-scene outline>
+
+            <a-camera far="60" near="0.1"></a-camera>
+
+            <a-assets>
+
+                <img id="boxTexture" src="https://2.bp.blogspot.com/-oIcJCDSd4Pk/UFwYUIaEj7I/AAAAAAAACOE/jQEoayseiv4/s1600/Tileable+eroded+scratch+metal+texture+background+00.jpg">
+                <a-asset-item id="woman" src="/assets/scene.gltf"></a-asset-item>
+
+            </a-assets>
+
+                <a-entity environment="preset: poison; dressingAmount: 500"></a-entity>
+                <a-entity gltf-model="#woman" position="0 0 -.5" rotation="0 -90 0"></a-entity>
+                <a-entity gltf-model="#monster" animation-mixer></a-entity>
+
+                <a-light type="ambient" color="#cf9b6d"></a-light>
+                <a-light type="point" intensity=".02" position="2 4 4" color="#e527a8"></a-light>
+            
+        </a-scene>
+    </body>
+</html>
+
